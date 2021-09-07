@@ -44,7 +44,7 @@ Para la ubicación física se parte del directorio raíz del repositorio (cuyo n
 | Guía de trabajos prácticos        	| GTP_YYYY_Descripcion.pdf               	    | /Enunciados                   	|
 | Guía de trabajos conceptuales     	| GTC_YYYY_Descripcion.pf                	    | /Enunciados                   	|
 | Modalidad Académica               	| ISW_YYYY_ModalidadAcademida.pdf          	    | /Lineamientos                 	|
-| Template de parcial               	| TemplateParcial_NN_YYYY.pdf            	    | /Lineamientos/Templates       	|
+| Template de parcial               	| TemplateParcial_NN_YYYY.(docx|dotx)           | /Lineamientos/Templates       	|
 | Protocolo para exámenes parciales 	| ProtocoloParciales_YYYY.pdf              	    | /Lineamientos/Protocolos      	|
 | Protocolo para exámenes finales   	| ProtocoloFinales_YYYY.pdf                	    | /Lineamientos/Protocolos      	|
 | Trabajos Prácticos                	| 4K3_G2_TPNN_Descripcion.pdf            	    | /Trabajos/Practicos/TPNN    	    |
