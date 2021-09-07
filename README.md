@@ -38,17 +38,17 @@ Para la ubicación física se parte del directorio raíz del repositorio (cuyo n
 
 | Nombre del ítem de configuración  	| Regla de nombrado                          	| Ubicación física              	|
 |-----------------------------------	|--------------------------------------------	|-------------------------------	|
-| Material Bibliográfico            	| <Descripcion>_<Autor>.pdf                  	| /Bibliografia                 	|
-| Filminas                          	| <NN>_<YYYY>_<Descripcion>.(pdf\|ppt\|pptx) 	| /Bibliografia                 	|
+| Material Bibliográfico            	| Descripcion_Autor.pdf                  	    | /Bibliografia                 	|
+| Filminas                          	| NN_YYYY_Descripcion.(pdf\|ppt\|pptx) 	        | /Bibliografia                 	|
 | Clases grabadas                   	| clases.txt                                 	| /Clases                       	|
-| Guía de trabajos prácticos        	| GTP_<YYYY>_<Descripcion>.pdf               	| /Enunciados                   	|
-| Guía de trabajos conceptuales     	| GTC_<YYYY>_<Descripcion>.pf                	| /Enunciados                   	|
-| Modalidad Académica               	| ISW_<YYYY>_ModalidadAcademida.pdf          	| /Lineamientos                 	|
-| Template de parcial               	| TemplateParcial_<NN>_<YYYY>.pdf            	| /Lineamientos/Templates       	|
-| Protocolo para exámenes parciales 	| ProtocoloParciales_<YYYY>.pdf              	| /Lineamientos/Protocolos      	|
-| Protocolo para exámenes finales   	| ProtocoloFinales_<YYYY>.pdf                	| /Lineamientos/Protocolos      	|
-| Trabajos Prácticos                	| 4K3_G2_TP<NN>_<Descripcion>.pdf            	| /Trabajos/Practicos/TP<NN>    	|
-| Trabajos Conceptuales             	| 4K3_G2_TC<NN>_<Descripcion>.pdf            	| /Trabajos/Conceptuales/TC<NN> 	|
+| Guía de trabajos prácticos        	| GTP_YYYY_Descripcion.pdf               	    | /Enunciados                   	|
+| Guía de trabajos conceptuales     	| GTC_YYYY_Descripcion.pf                	    | /Enunciados                   	|
+| Modalidad Académica               	| ISW_YYYY_ModalidadAcademida.pdf          	    | /Lineamientos                 	|
+| Template de parcial               	| TemplateParcial_NN_YYYY.pdf            	    | /Lineamientos/Templates       	|
+| Protocolo para exámenes parciales 	| ProtocoloParciales_YYYY.pdf              	    | /Lineamientos/Protocolos      	|
+| Protocolo para exámenes finales   	| ProtocoloFinales_YYYY.pdf                	    | /Lineamientos/Protocolos      	|
+| Trabajos Prácticos                	| 4K3_G2_TPNN_Descripcion.pdf            	    | /Trabajos/Practicos/TPNN    	    |
+| Trabajos Conceptuales             	| 4K3_G2_TCNN_Descripcion.pdf            	    | /Trabajos/Conceptuales/TCNN 	    |
 
 ### Linea base 📝
 El equipo de trabajo llegó a la decisión de realizar una línea base luego de recibir la corrección de un trabajo práctico o un trabajo conceptual en la materia Ing de SW. Como el equipo utilizará la herramienta github, las líneas bases se definirán con el uso de tags.
