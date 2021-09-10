@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "negocioId": 1,
+        "nombre": "Hamburguesa Triple",
+        "precio": 10,
+        "imgUrl": "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "id": 2,
+        "negocioId": 2,
+        "nombre": "Pizza",
+        "precio": 21,
+        "imgUrl": "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "id": 3,
+        "negocioId": 3,
+        "nombre": "Sandwitch",
+        "precio": 33,
+        "imgUrl": "https://images.pexels.com/photos/6529599/pexels-photo-6529599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+        "id": 4,
+        "negocioId": 3,
+        "nombre": "Tacos",
+        "precio": 43,
+        "imgUrl": "https://images.pexels.com/photos/3642718/pexels-photo-3642718.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    },
+    {
+        "id": 5,
+        "negocioId": 2,
+        "nombre": "Ensalada",
+        "precio": 64,
+        "imgUrl": "https://images.pexels.com/photos/4551971/pexels-photo-4551971.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    }
+]
