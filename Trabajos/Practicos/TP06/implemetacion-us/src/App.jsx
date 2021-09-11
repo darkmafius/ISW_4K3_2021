@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Menu from './components/Menu';
-import Header from './components/Header';
-import Productos from './components/Productos';
-import Footer from './components/Footer';
-
-import productos from './db/Productos.json';
+import Principal from './Principal';
+import Formulario from './Formulario';
 
 function App() {
-  const [carrito, setCarrito] = useState([]);
-
   return (
-    <>
-      <Menu
-        carrito={carrito}
-      />
-      <Header />
-      <Productos
-        productos={productos}
-      />
-      <Footer />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Principal} />
+        <Route exact path="/formulario" component={Formulario} />
+      </Switch>
+    </Router>
   );
 }
 
