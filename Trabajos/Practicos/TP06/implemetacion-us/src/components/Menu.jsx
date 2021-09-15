@@ -19,46 +19,26 @@ const Menu = (props) => {
   return (
     <Router>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container px-4 px-lg-5">
+        <div className="container">
           <Link to="/" className="navbar-brand" href="#!">Shop in style</Link>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+          <form
+            className="d-flex"
+            onSubmit={handleSubmit}
           >
-            <span className="navbar-toggler-icon" />
-
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li className="nav-item"><a className="nav-link active" aria-current="page" href="#!">Inicio</a></li>
-              <li className="nav-item"><a className="nav-link" href="#!">Sobre Nosotros</a></li>
-            </ul>
-
-            <form
-              className="d-flex"
-              onSubmit={handleSubmit}
+            <button
+              className="btn btn-outline-dark"
+              type="submit"
             >
-              <button
-                className="btn btn-outline-dark"
-                type="submit"
+              <i className="bi-cart-fill me-1" />
+              Carrito
+              <span
+                className="badge bg-dark text-white ms-1 rounded-pill"
               >
-                <i className="bi-cart-fill me-1" />
-                Carrito
-                <span
-                  className="badge bg-dark text-white ms-1 rounded-pill"
-                >
-                  {carrito.length}
-                </span>
-              </button>
-            </form>
-          </div>
+                {carrito.length}
+              </span>
+            </button>
+          </form>
         </div>
       </nav>
     </Router>

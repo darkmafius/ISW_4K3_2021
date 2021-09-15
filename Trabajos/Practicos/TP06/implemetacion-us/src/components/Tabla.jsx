@@ -6,11 +6,17 @@ const Tabla = (props) => {
   const { carrito } = props;
   const arrayProductos = [];
 
+  // Matchear el id del prod con el producto en la bd
   for (let i = 0; i < carrito.length; i++) {
-    if (carrito[i] === productos[i].id) {
-      arrayProductos.push(productos[i]);
+    for (let j = 0; j < productos.length; j++) {
+      if (carrito[i] === productos[j].id) {
+        arrayProductos.push(productos[i]);
+      }
     }
   }
+
+  console.log(carrito);
+  console.log(arrayProductos);
 
   return (
     <>
