@@ -1,5 +1,9 @@
 [
     {
+        "id": 0,
+        "nombre": "Elejir Ciudad..."
+    },
+    {
         "id": 1,
         "nombre": "Jesús María"
     },

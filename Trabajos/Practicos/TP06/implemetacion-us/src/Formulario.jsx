@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import {
   Form, Col, Button, Row, Container, InputGroup, FormControl,
 } from 'react-bootstrap';
 
 import Header from './components/Header';
+import Tabla from './components/Tabla';
 import Footer from './components/Footer';
 
 import ciudades from './db/Ciudades.json';
 
-const Formulario = () => {
+const Formulario = (props) => {
   const [metodoPago, setMetodoPago] = useState('efectivo');
   const [fechaEntrega, setFechaEntrega] = useState('antesPosible');
   const [datosForm, setDatosForm] = useState({
@@ -24,6 +26,7 @@ const Formulario = () => {
     fechaEntregaProd: '',
   });
 
+  const { carrito } = props.history.location.state;
   const {
     direccion, referencia, ciudad, cantidadEfectivo, nombreTarjeta, apellidoTarjeta, numeroTarjeta, fechaTarjeta, codigoTarjeta, fechaEntregaProd,
   } = datosForm;
@@ -40,24 +43,117 @@ const Formulario = () => {
     e.preventDefault();
 
     // Validar que el carrito tenga un elemento
+    if (carrito.length === 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debe tener al menos un elemento en el carrito',
+      });
+      return;
+    }
 
-    // Validar direccion referencia y ciudad
+    // Validar direccion y ciudad
+    if (!direccion || (!ciudad || ciudad == 0)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debe ingresar una dirección y seleccionar una ciudad',
+      });
+      return;
+    }
 
     // Validar metodo de pago
+    switch (metodoPago) {
+      case 'efectivo':
+        if (!cantidadEfectivo) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar el monto a pagar',
+          });
+          return;
+        }
+        break;
+
+      case 'tarjeta':
+        if (!nombreTarjeta || !apellidoTarjeta) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar nombre y apellido del titular de la tarjeta',
+          });
+          return;
+        }
+
+        if (!numeroTarjeta || (numeroTarjeta.replace(/\s/g, '')).length !== 16 || numeroTarjeta[0] != 4) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar un número de tarjeta válido',
+          });
+          return;
+        }
+
+        if (!fechaTarjeta || !codigoTarjeta) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe ingresar datos válidos de la tarjeta',
+          });
+          return;
+        }
+        break;
+
+      default:
+        break;
+    }
 
     // Validar fecha entrega
+    if (fechaEntrega !== 'antesPosible') {
+      if (!fechaEntregaProd || fechaEntregaProd.length !== 10) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Debe ingresar una fecha de entrega',
+        });
+        return;
+      }
+
+      const dia = `${fechaEntregaProd[0]}${fechaEntregaProd[1]}`;
+      const mes = `${fechaEntregaProd[3]}${fechaEntregaProd[4]}`;
+      const año = `${fechaEntregaProd[6]}${fechaEntregaProd[7]}${fechaEntregaProd[8]}${fechaEntregaProd[9]}`;
+
+      if ((dia > 31 || dia < 1) || (mes > 12 || mes < 1) || año < 2021) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Debe ingresar una fecha válida',
+        });
+        return;
+      }
+    }
 
     // Confirmar pedido (sweetalert)
+    Swal.fire({
+      icon: 'success',
+      title: 'Tu pedido se realizó con éxito',
+      text: 'Tu pedido esta en camino!',
+    });
   };
-
-  // TODO: cambiar el default de elegir ciudad
 
   return (
     <>
       <Header />
       <Container className="my-5">
 
-        <Form>
+        <Tabla
+          carrito={carrito}
+        />
+
+        <h3 className="mb-2">Formulario de Pago</h3>
+        <Form
+          onSubmit={handleSubmit}
+        >
           <Form.Group className="mb-3" controlId="formGridAddress1">
             <Form.Label>Dirección</Form.Label>
             <Form.Control
@@ -101,7 +197,7 @@ const Formulario = () => {
           </Row>
 
           <Form.Group className="my-2">
-            <Form.Label as="legend" column sm={2}>
+            <Form.Label as="legend" column sm={2} className="mx-2">
               Pago
             </Form.Label>
             <Form.Check
@@ -199,7 +295,7 @@ const Formulario = () => {
           )}
 
           <Form.Group className="my-2">
-            <Form.Label as="legend" column sm={2}>
+            <Form.Label as="legend" column sm={2} className="mx-2">
               Entrega
             </Form.Label>
             <Form.Check
@@ -207,7 +303,7 @@ const Formulario = () => {
               label="Lo antes posible"
               name="group2"
               type="radio"
-              id="efectivo"
+              id="antesPosible"
               defaultChecked
               onClick={() => setFechaEntrega('antesPosible')}
             />
@@ -216,7 +312,7 @@ const Formulario = () => {
               label="Elejir fecha"
               name="group2"
               type="radio"
-              id="tarjeta"
+              id="fechaPersonalizada"
               onClick={() => setFechaEntrega('personalizado')}
             />
           </Form.Group>

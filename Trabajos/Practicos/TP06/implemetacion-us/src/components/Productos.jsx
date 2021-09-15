@@ -1,13 +1,18 @@
 import React from 'react';
 
 const Productos = (props) => {
-  const { productos } = props;
+  const { carrito, productos, setCarrito } = props;
 
   return (
     <section className="py-5">
       <div className="container px-4 px-lg-5 mt-5">
         {productos.map((prod) => (
-          <Tarjeta key={prod.id} prod={prod} />
+          <Tarjeta
+            key={prod.id}
+            carrito={carrito}
+            prod={prod}
+            setCarrito={setCarrito}
+          />
         ))}
       </div>
     </section>
@@ -15,7 +20,17 @@ const Productos = (props) => {
 };
 
 const Tarjeta = (props) => {
-  const { nombre, precio, imgUrl } = props.prod;
+  const { carrito, setCarrito, prod } = props;
+  const {
+    id, nombre, precio, imgUrl,
+  } = prod;
+
+  const handleChange = () => {
+    setCarrito([
+      ...carrito,
+      id,
+    ]);
+  };
 
   return (
     <div className="col mb-5">
@@ -36,9 +51,13 @@ const Tarjeta = (props) => {
 
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <a className="btn btn-outline-dark mt-auto" href="#">
+            <button
+              className="btn btn-outline-dark mt-auto"
+              type="button"
+              onClick={handleChange}
+            >
               Añadir al carrito
-            </a>
+            </button>
           </div>
         </div>
       </div>

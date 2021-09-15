@@ -17,7 +17,9 @@ const Principal = () => {
       />
       <Header />
       <Productos
+        carrito={carrito}
         productos={productos}
+        setCarrito={setCarrito}
       />
       <Footer />
     </>
